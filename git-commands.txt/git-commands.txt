@@ -1,0 +1,25 @@
+mkdir monorepo-js
+cd monorepo-js
+git init
+git add .
+git commit -m "initial commit"
+mkdir backend
+touch backend/.gitkeep
+git add backend
+git commit -m "add empty backend directory"
+git remote add origin https://github.com/Samadewale21/monorepo-j.git
+git push -u origin main
+git checkout -b frontend-layout
+mkdir -p frontend/src/components frontend/src/containers
+touch frontend/src/components/.gitkeep frontend/src/containers/.gitkeep
+git add frontend/src
+git commit -m "chore: add components and containers directory to frontend"
+mkdir -p frontend/src/index.js
+git add frontend/src/index.js
+git commit -m "add content dynamically to page via JavaScript"
+git push -u origin frontend-layout
+git checkout main
+git merge frontend-layout
+git add frontend/public/index.html
+git commit -m "add index.html file"
+git push origin main
